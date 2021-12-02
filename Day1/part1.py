@@ -3,7 +3,7 @@ with open('Day1/input.txt') as f:
 
 print(
     len(
-        [1 for i, d in enumerate(data[1:])
+        [1 for i, _ in enumerate(data[1:])
         if (data[i] > data[i-1])]
     )
 )
