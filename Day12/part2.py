@@ -14,7 +14,7 @@ class Graph:
             visited[u] += 1
         path.append(u)
 
-        if u == 'end':
+        if u == d:
             paths.append(path)
         else:
             for i in self.graph[u]:
