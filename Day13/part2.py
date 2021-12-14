@@ -7,6 +7,7 @@ dots = {tuple(parse('{:d},{:d}', d)) for d in data[:data.index('')]}
 instructions = [tuple(parse('fold along {}={:d}', d))
                 for d in data[data.index('')+1:]]
 
+
 def fold(dots, axis, line):
     new_dot = [0, 0]
 
@@ -21,13 +22,15 @@ def fold(dots, axis, line):
         new_dot[1-i] = dot[i-1]
         dots.add(tuple(new_dot))
 
+
 def show_paper(dots):
     width = max(dots, key=lambda x: x[0])[0]
     height = max(dots, key=lambda x: x[1])[1]
 
     for y in range(height+1):
         print(
-            ('').join(['x' if (x, y) in dots else ' ' for x in range(width)]))
+            ('').join(['x' if (x, y) in dots else ' ' for x in range(width+1)]))
+
 
 for instruction in instructions:
     fold(dots, *instruction)
